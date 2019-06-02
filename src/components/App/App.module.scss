@@ -1,0 +1,42 @@
+@import "./../../variables.scss";
+
+.Main {
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 $space-base * 2;
+  max-width: $container-width;
+}
+
+.Header {
+  padding: $space-base * 4 0;
+}
+
+.Photo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  overflow: hidden;
+  
+  &,
+  > img {
+    border-radius: 100%;
+  }
+
+  > img {
+    width: 100%;
+  }
+}
+
+.UserName {
+  font-size: 14px;
+}
+
+.Title {
+  font-size: 36px;
+  margin: $space-base * 2 0 0;
+}
+
+.Description {
+  font-size: 25px;
+  margin: 0;
+}
