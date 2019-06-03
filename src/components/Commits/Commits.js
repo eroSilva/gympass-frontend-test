@@ -20,8 +20,9 @@ function Commits(state) {
     }
     
     loadCommits()
-  }, [])
+  }, [state.repoName, emptyResponse])
 
+  
   const humanizeDate = (date) => {
     const dateObject = new Date(date);
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
