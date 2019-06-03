@@ -1,68 +1,52 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esse projeto foi criado a partir do [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Scripts Disponíveis
 
-In the project directory, you can run:
+No diretório do projeto, você pode rodar:
 
 ### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Executa o aplicativo no modo de desenvolvimento.<br>
+Abra [http://localhost:3000](http://localhost:3000) para visualizá-lo no navegador.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+A página será recarregada se você fizer edições.<br>
+Você também verá quaisquer erros de lint no console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Inicia a execução dos testes em tempo real
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Cria o aplicativo para produção na pasta `build`<br>
+Ele agrupa corretamente o React no modo de produção e otimiza o build para obter o melhor desempenho.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Recursos ES6+ utilizados
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Template String  
+Strings que permitem embutir expressões. Com elas, a concatenação de variáveis fica muito mais legível. Utilizei bastante para montar as URLs da API do Github
 
-### `npm run eject`
+```js
+`https://api.github.com/users/${foo}/repos`
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Async / Awai
+Trabalhar com funções assíncronas com async/await deixam o código muito mais organizando, evitando o encadeamento de callbacks, dando muito mais flexibilidade de manipulação de dados retornados dessas funções.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```js
+const responseRepositories = await fetch(`https://api.github.com/users/${state.userName}/repos`);
+const responseRepositoriesJSON = await responseRepositories.json();
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+console.log(responseRepositoriesJSON) // => {data: {foo: 'test', baa: 'test'}}
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Arrow Functions
+Uma maneira mais resumida de escrita de funções, permitindo criar soluções em apenas uma linha.
 
-## Learn More
+```js
+onKeyUp={(target) => filterCommits(target)}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Sobre testes
+Não possuo familiaridade com a escrita de testes. Escrevi apenas os testes de renderização de componente que o próprio create-react-app já disponibiliza.
