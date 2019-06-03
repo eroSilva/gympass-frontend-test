@@ -1,6 +1,6 @@
 @import "./../../variables.scss";
 
-.Main {
+.MainContent {
   text-align: center;
   margin: 0 auto;
   padding: 0 $space-base * 2;
@@ -31,6 +31,21 @@
   font-size: 14px;
 }
 
+.UserBackToLogin {
+  padding: $space-base * 0.5 $space-base * 2;
+  border: none;
+  background: $color-text;
+  color: $color-bg; 
+  border-radius: 2px;
+  transition: .2s;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background: darken($color-text, 10%);
+  }
+}
+
 .Title {
   font-size: 36px;
   margin: $space-base * 2 0 0;
@@ -38,5 +53,5 @@
 
 .Description {
   font-size: 25px;
-  margin: 0;
+  margin: 0 0 $space-base;
 }

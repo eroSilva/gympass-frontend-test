@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import style from './Commits.module.scss';
-import Env from '../../Env.js';
 
 function Commits(state) {
   const [commits, setCommits] = useState([]);
@@ -10,7 +9,7 @@ function Commits(state) {
 
   useEffect(() => {
     async function loadCommits() {
-      const response = await fetch(`https://api.github.com/repos/${Env.userLogin}/${state.repoName}/commits`);
+      const response = await fetch(`https://api.github.com/repos/${state.repoLogin}/${state.repoName}/commits`);
       const commits = await response.json();
 
       setEmptyResponse(!response.ok); 
@@ -20,7 +19,7 @@ function Commits(state) {
     }
     
     loadCommits()
-  }, [state.repoName, emptyResponse])
+  }, [state.repoName, state.repoLogin, emptyResponse])
 
   
   const humanizeDate = (date) => {

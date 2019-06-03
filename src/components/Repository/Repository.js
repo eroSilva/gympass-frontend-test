@@ -6,7 +6,7 @@ function Repository(state) {
   return (
     <div className={`${style.Modal} ${state.modalOpen ? style.isOpen : ''}`}>
       <button className={style.CloseButton} onClick={() => state.cleanRepositoryDetails()}>X</button>
-      {state.repositoryData.length !== 0 ? <Commits repoName={state.repositoryData.name} repoDescription={state.repositoryData.description}/> : null}
+      {state.repositoryData.length !== 0 ? <Commits repoLogin={state.repositoryData.owner.login} repoName={state.repositoryData.name} repoDescription={state.repositoryData.description}/> : null}
     </div>
   );
 }

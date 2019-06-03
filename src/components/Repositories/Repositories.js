@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import Repository from '../Repository';
 import style from './Repositories.module.scss';
-import Env from '../../Env.js';
 
-function Repositories() {
+function Repositories(state) {
   const [repositories, setRepositories] = useState([]);
   const [repository, setRepository] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   
   useEffect(() => {
     async function loadRepositories() {
-      const responseRepositories = await fetch(`https://api.github.com/users/${Env.userLogin}/repos`);
+      const responseRepositories = await fetch(`https://api.github.com/users/${state.userName}/repos`);
       const responseRepositoriesJSON = await responseRepositories.json();
 
       setRepositories(responseRepositoriesJSON)
     }
     
     loadRepositories()
-  }, [])
+  }, [state.userName])
 
   const getRepositoryDetails = (repositoryData) => {
     setModalOpen(true)
@@ -44,7 +43,6 @@ function Repositories() {
           })
         }
       </ul>
-
       <Repository repositoryData={repository} modalOpen={modalOpen} cleanRepositoryDetails={cleanRepositoryDetails} />
     </section>
   );
