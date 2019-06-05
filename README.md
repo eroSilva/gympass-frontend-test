@@ -30,7 +30,7 @@ Strings que permitem embutir expressões. Com elas, a concatenação de variáve
 `https://api.github.com/users/${foo}/repos`
 ```
 
-### Async / Awai
+### Async / Await
 Trabalhar com funções assíncronas com async/await deixam o código muito mais organizando, evitando o encadeamento de callbacks, dando muito mais flexibilidade de manipulação de dados retornados dessas funções.
 
 ```js
